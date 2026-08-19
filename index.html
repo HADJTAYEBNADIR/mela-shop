@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mela Shop | Haute Joaillerie en Acier Inoxydable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0b0b0b;
+      --card-bg: #141414;
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --text: #eaeaea;
+      --text-muted: #8e8e8e;
+      --border: #222222;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .hero {
+      padding: 5rem 1.5rem 3rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #fff;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-tiktok {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold), #997a15);
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 2px;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-tiktok:hover {
+      opacity: 0.9;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .gallery {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .gallery-title {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+      color: var(--gold);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 1.5rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%);
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-item h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      margin: 1.2rem 0 0.4rem;
+      color: #fff;
+    }
+
+    .gallery-item span {
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      background-color: #070707;
+      margin-top: 5rem;
+    }
+
+    .footer-legal {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-name">MELA SHOP</div>
+    <div class="brand-subtitle">Maison de Joaillerie • Paris</div>
+  </header>
+
+  <section class="hero">
+    <h1>L'Élégance Éternelle en Acier Inoxydable</h1>
+    <p>Des créations raffinées, conçues en acier inoxydable 316L certifié. Résistantes à l'eau, durables et pensées pour sublimer votre quotidien sans jamais ternir.</p>
+    <!-- استبدل الرابط أدناه برابط متجرك على تيك توك -->
+    <a href="https://www.tiktok.com/@your_tiktok_handle" target="_blank" class="btn-tiktok">
+      Découvrir notre Boutique TikTok
+    </a>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <h3>Acier 316L Véritable</h3>
+      <p>Qualité chirurgicale supérieure, éclat inaltérable dans le temps.</p>
+    </div>
+    <div class="feature-card">
+      <h3>100% Waterproof</h3>
+      <p>Résiste à l'eau, au parfum et à l'épreuve du quotidien.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Hypoallergénique</h3>
+      <p>Sans nickel ni plomb, idéal pour toutes les peaux sensibles.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Garantie Qualité</h3>
+      <p>Un engagement rigoureux sur la tenue de nos dorures.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2 class="gallery-title">Sélection Exclusive</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="Collier Acier Inoxydable">
+        <h4>Colliers & Pendentifs</h4>
+        <span>ACIER DORÉ 18K</span>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1611591475155-42e91ec38848?auto=format&fit=crop&w=600&q=80" alt="Bracelet Acier Inoxydable">
+        <h4>Bracelets & Joncs</h4>
+        <span>ACIER INOXYDABLE</span>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" alt="Bague Acier Inoxydable">
+        <h4>Bagues & Chevalières</h4>
+        <span>FINITION POLIE</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand-name" style="font-size: 1.3rem;">MELA SHOP</div>
+    <div class="footer-legal">
+      Entreprise enregistrée en France • SIRET : [VOTRE_NUMÉRO_SIRET]<br>
+      Site officiel vitrine • Tous nos articles sont disponibles à l'achat exclusif sur notre boutique TikTok Shop.<br>
+      © 2026 Mela Shop France. Tous droits réservés.
+    </div>
+  </footer>
+
+</body>
+</html>
