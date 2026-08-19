@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mela Shop | Haute Joaillerie en Acier Inoxydable</title>
+  <title>MELA SHOP | Haute Joaillerie en Acier Inoxydable 316L</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0b0b0b;
-      --card-bg: #141414;
-      --gold: #d4af37;
-      --gold-light: #f3e5ab;
-      --text: #eaeaea;
-      --text-muted: #8e8e8e;
-      --border: #222222;
+      --bg-main: #0a0a0a;
+      --bg-card: #121212;
+      --gold-primary: #d4af37;
+      --gold-light: #f7e7a9;
+      --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+      --text-white: #ffffff;
+      --text-gray: #a3a3a3;
+      --border-color: rgba(212, 175, 55, 0.2);
     }
 
     * {
@@ -24,236 +25,443 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: var(--bg-color);
-      color: var(--text);
+      background-color: var(--bg-main);
+      color: var(--text-white);
       font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
       line-height: 1.6;
     }
 
-    header {
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand-name {
-      font-family: 'Cinzel', serif;
-      font-size: 2.2rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .brand-subtitle {
-      font-size: 0.8rem;
+    /* Top Ticker Bar */
+    .top-banner {
+      background: #000;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 8px 0;
+      font-size: 0.75rem;
       letter-spacing: 2px;
-      color: var(--text-muted);
       text-transform: uppercase;
-      margin-top: 0.3rem;
+      color: var(--gold-light);
     }
 
-    .hero {
-      padding: 5rem 1.5rem 3rem;
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 25s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Navigation */
+    nav {
+      padding: 2rem 1.5rem;
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .brand-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 6px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: var(--text-gray);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 10, 1) 70%);
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold-primary);
+      padding: 6px 18px;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      background: rgba(212, 175, 55, 0.05);
     }
 
     .hero h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.6rem;
-      font-weight: 500;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.2;
       margin-bottom: 1.2rem;
+      max-width: 900px;
       color: #fff;
     }
 
     .hero p {
-      color: var(--text-muted);
       font-size: 1.05rem;
+      color: var(--text-gray);
+      max-width: 650px;
       margin-bottom: 2.5rem;
+      font-weight: 300;
     }
 
-    .btn-tiktok {
+    /* Luxury Button */
+    .btn-gold {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--gold), #997a15);
+      justify-content: center;
+      gap: 12px;
+      background: var(--gold-gradient);
       color: #000;
-      text-decoration: none;
+      font-size: 0.9rem;
       font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 14px 32px;
+      padding: 16px 36px;
+      text-decoration: none;
       border-radius: 2px;
-      transition: opacity 0.3s ease;
+      box-shadow: 0 4px 25px rgba(212, 175, 55, 0.35);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-tiktok:hover {
-      opacity: 0.9;
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
     }
 
-    .features {
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.6s;
+    }
+
+    .btn-gold:hover::after {
+      left: 100%;
+    }
+
+    /* Value Pillars */
+    .pillars {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-5px);
+    }
+
+    .pillar-card .icon {
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .pillar-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: var(--gold-light);
+    }
+
+    .pillar-card p {
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+
+    /* Showcase Section */
+    .showcase {
+      max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
     }
 
-    .feature-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 2rem 1.5rem;
+    .section-header {
       text-align: center;
+      margin-bottom: 3.5rem;
     }
 
-    .feature-card h3 {
+    .section-header span {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+    }
+
+    .section-header h2 {
       font-family: 'Cinzel', serif;
-      color: var(--gold-light);
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .feature-card p {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    .gallery {
-      max-width: 1100px;
-      margin: 5rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .gallery-title {
-      font-family: 'Cinzel', serif;
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 2.5rem;
-      color: var(--gold);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-item {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      text-align: center;
-      padding-bottom: 1.5rem;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(15%);
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.03);
-    }
-
-    .gallery-item h4 {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      margin: 1.2rem 0 0.4rem;
+      font-size: 2.2rem;
+      margin-top: 0.5rem;
       color: #fff;
     }
 
-    .gallery-item span {
-      font-size: 0.8rem;
-      color: var(--gold);
-      letter-spacing: 1px;
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 3rem 1.5rem;
+    .showcase-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .showcase-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-6px);
+    }
+
+    .img-container {
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      background: #181818;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .showcase-card:hover .img-container img {
+      transform: scale(1.06);
+    }
+
+    .card-body {
+      padding: 1.8rem;
       text-align: center;
-      background-color: #070707;
-      margin-top: 5rem;
+    }
+
+    .card-body h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #fff;
+    }
+
+    .card-body p {
+      font-size: 0.85rem;
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* TikTok CTA Banner */
+    .tiktok-banner {
+      background: linear-gradient(180deg, #111 0%, #050505 100%);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      margin: 6rem 0;
+    }
+
+    .tiktok-banner h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .tiktok-banner p {
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #050505;
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .footer-legal {
+      margin-top: 2rem;
       font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 1rem;
-      line-height: 1.8;
+      color: #666;
+      line-height: 1.9;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="brand-name">MELA SHOP</div>
-    <div class="brand-subtitle">Maison de Joaillerie • Paris</div>
-  </header>
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <div class="ticker-track">
+      ✨ ACIER INOXYDABLE 316L VÉRITABLE • 100% RÉSISTANT À L'EAU & AU PARFUM • LIVRAISON RAPIDE EN FRANCE • GARANTIE QUALITÉ INALTÉRABLE • ACHAT EXCLUSIF SUR NOTRE BOUTIQUE TIKTOK SHOP ✨ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✨ ACIER INOXYDABLE 316L VÉRITABLE • 100% RÉSISTANT À L'EAU & AU PARFUM • LIVRAISON RAPIDE EN FRANCE • GARANTIE QUALITÉ INALTÉRABLE • ACHAT EXCLUSIF SUR NOTRE BOUTIQUE TIKTOK SHOP ✨
+    </div>
+  </div>
 
+  <!-- Header -->
+  <nav>
+    <div class="brand-logo">MELA SHOP</div>
+    <div class="brand-tagline">Maison de Haute Joaillerie • Paris</div>
+  </nav>
+
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>L'Élégance Éternelle en Acier Inoxydable</h1>
-    <p>Des créations raffinées, conçues en acier inoxydable 316L certifié. Résistantes à l'eau, durables et pensées pour sublimer votre quotidien sans jamais ternir.</p>
-    <!-- استبدل الرابط أدناه برابط متجرك على تيك توك -->
-    <a href="https://www.tiktok.com/@your_tiktok_handle" target="_blank" class="btn-tiktok">
-      Découvrir notre Boutique TikTok
+    <div class="hero-badge">Acier Inoxydable Certifié 316L</div>
+    <h1>L'Éclat Éternel des Trèfles Précieux</h1>
+    <p>Découvrez notre sélection exclusive de parures et bijoux d'exception. Conçus pour résister au temps, à l'eau et aux épreuves du quotidien sans jamais ternir.</p>
+    
+    <!-- ضع رابط حسابك في التيك توك هنا -->
+    <a href="https://www.tiktok.com/@your_tiktok_handle" target="_blank" class="btn-gold">
+      Accéder à la Boutique TikTok Shop
     </a>
   </section>
 
-  <section class="features">
-    <div class="feature-card">
+  <!-- Value Pillars -->
+  <section class="pillars">
+    <div class="pillar-card">
+      <span class="icon">✦</span>
       <h3>Acier 316L Véritable</h3>
-      <p>Qualité chirurgicale supérieure, éclat inaltérable dans le temps.</p>
+      <p>Qualité chirurgicale noble. Ne rouille pas, ne noircit pas et conserve son éclat doré originel.</p>
     </div>
-    <div class="feature-card">
+    <div class="pillar-card">
+      <span class="icon">✧</span>
       <h3>100% Waterproof</h3>
-      <p>Résiste à l'eau, au parfum et à l'épreuve du quotidien.</p>
+      <p>Portez vos bijoux sous la douche, à la piscine ou au sport sans aucune décoloration.</p>
     </div>
-    <div class="feature-card">
+    <div class="pillar-card">
+      <span class="icon">✦</span>
       <h3>Hypoallergénique</h3>
-      <p>Sans nickel ni plomb, idéal pour toutes les peaux sensibles.</p>
+      <p>Formulé sans nickel ni plomb, conçu pour respecter même les peaux les plus sensibles.</p>
     </div>
-    <div class="feature-card">
-      <h3>Garantie Qualité</h3>
-      <p>Un engagement rigoureux sur la tenue de nos dorures.</p>
-    </div>
-  </section>
-
-  <section class="gallery">
-    <h2 class="gallery-title">Sélection Exclusive</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="Collier Acier Inoxydable">
-        <h4>Colliers & Pendentifs</h4>
-        <span>ACIER DORÉ 18K</span>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1611591475155-42e91ec38848?auto=format&fit=crop&w=600&q=80" alt="Bracelet Acier Inoxydable">
-        <h4>Bracelets & Joncs</h4>
-        <span>ACIER INOXYDABLE</span>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" alt="Bague Acier Inoxydable">
-        <h4>Bagues & Chevalières</h4>
-        <span>FINITION POLIE</span>
-      </div>
+    <div class="pillar-card">
+      <span class="icon">✧</span>
+      <h3>Finition Dorée 18K</h3>
+      <p>Un placage fin de haute précision qui apporte une brillance luxueuse et sophistiquée.</p>
     </div>
   </section>
 
+  <!-- Showcase Gallery with Products -->
+  <section class="showcase">
+    <div class="section-header">
+      <span>Collection Signature</span>
+      <h2>Les Joyaux de la Maison</h2>
+    </div>
+
+    <div class="showcase-grid">
+      <!-- Item 1: Set Trèfle Émeraude -->
+      <div class="showcase-card">
+        <div class="img-container">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="Parure Trèfle Émeraude">
+        </div>
+        <div class="card-body">
+          <div class="card-tag">Acier Inoxydable Doré</div>
+          <h4>Parure Royale Trèfle</h4>
+          <p>Collier, boucles et bracelet ornés de cristaux vert émeraude facettés.</p>
+        </div>
+      </div>
+
+      <!-- Item 2: Set Trèfle Multicolore -->
+      <div class="showcase-card">
+        <div class="img-container">
+          <img src="https://images.unsplash.com/photo-1611591475155-42e91ec38848?auto=format&fit=crop&w=800&q=80" alt="Collier & Bracelet Multicolore">
+        </div>
+        <div class="card-body">
+          <div class="card-tag">Collection Rainbow Trèfle</div>
+          <h4>Parure Pastel & Multicolore</h4>
+          <p>L'harmonie parfaite des nuances rubis, saphir et améthyste sur monture dorée.</p>
+        </div>
+      </div>
+
+      <!-- Item 3: Parure Océan Turquoise -->
+      <div class="showcase-card">
+        <div class="img-container">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80" alt="Parure Turquoise">
+        </div>
+        <div class="card-body">
+          <div class="card-tag">Acier 316L Waterproof</div>
+          <h4>Parure Azur & Turquoise</h4>
+          <p>Éclat lumineux et intemporel pour sublimer vos tenues de jour comme de soirée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Big Call to Action -->
+  <section class="tiktok-banner">
+    <h2>Retrouvez Toute Notre Collection Sur TikTok</h2>
+    <p>Commandez vos modèles préférés en direct avec paiement sécurisé et suivi de livraison garanti par TikTok Shop.</p>
+    <a href="https://www.tiktok.com/@your_tiktok_handle" target="_blank" class="btn-gold">
+      Visiter la boutique TikTok Shop
+    </a>
+  </section>
+
+  <!-- Footer with Legal Info -->
   <footer>
-    <div class="brand-name" style="font-size: 1.3rem;">MELA SHOP</div>
+    <div class="brand-logo" style="font-size: 1.5rem;">MELA SHOP</div>
+    <div class="brand-tagline">Paris • France</div>
     <div class="footer-legal">
-      Entreprise enregistrée en France • SIRET : [VOTRE_NUMÉRO_SIRET]<br>
-      Site officiel vitrine • Tous nos articles sont disponibles à l'achat exclusif sur notre boutique TikTok Shop.<br>
-      © 2026 Mela Shop France. Tous droits réservés.
+      Société Mela Shop enregistrée en France • SIRET : [VOTRE_NUMÉRO_SIRET]<br>
+      Site officiel vitrine certifié • Les commandes sont traitées et expédiées exclusivement via notre canal officiel TikTok Shop.<br>
+      © 2026 MELA SHOP. Tous droits réservés.
     </div>
   </footer>
 
